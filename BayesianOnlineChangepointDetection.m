@@ -22,13 +22,8 @@ clear;
 %columnClose1=xlsread(filename,'E:E');
 ChangeList=[];
 fid=fopen('out.txt','wt');
-for i =1609:1740
-    s=num2str(i);
-    filename= strcat(s,'.csv');
-    %filename='TestLines.xlsx';
-    %columnClose1=xlsread(filename,'F:F');
-    %columnClose1=xlsread(filename,'M:M');
-    columnClose1=xlsread(filename,'B:B');%A:A
+
+%    columnClose1=xlsread(filename,'B:B')
 
     
     [num,txt,raw]=xlsread('companySummaryNew.csv','C:C');
@@ -210,9 +205,7 @@ for i =1609:1740
     %hold off;
     %normCount=ChangePointCount/T*260.89;
     ChangeList=[ChangeList; ChangePointCount];%normCount
-    fprintf(fid,char(strcat({s},{' '},compname(i+1),{' '})));
-    fprintf(fid,'%g\n',round(ChangePointCount));%normCount
-end
+
 
 
 fclose(fid);
